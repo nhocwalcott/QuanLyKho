@@ -187,8 +187,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/chucnang/xuatkho/xemtheovattu.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="47" column="75" lean-forward="true" selection-start-line="47" selection-start-column="75" selection-end-line="47" selection-end-column="75" />
+            <state relative-caret-position="373">
+              <caret line="38" column="22" lean-forward="true" selection-end-line="102" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -202,20 +202,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="343" column="76" selection-start-line="343" selection-start-column="44" selection-end-line="343" selection-end-column="76" />
+            <state relative-caret-position="246">
+              <caret line="336" column="84" selection-end-line="379" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BaocaoController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="760">
-              <caret line="116" column="27" selection-start-line="112" selection-end-line="116" selection-end-column="27" />
+            <state relative-caret-position="570">
+              <caret line="109" column="32" lean-forward="true" selection-start-line="109" selection-start-column="32" selection-end-line="109" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -499,7 +499,7 @@
       <path value="$PROJECT_DIR$/vendor/.idea/inspectionProfiles" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="-7" />
     <option name="width" value="1812" />
     <option name="height" value="1047" />
@@ -632,15 +632,15 @@
       <workItem from="1552272272337" duration="45000" />
       <workItem from="1552442575811" duration="22814000" />
       <workItem from="1552881861469" duration="593000" />
-      <workItem from="1552884243817" duration="11509000" />
+      <workItem from="1552884243817" duration="12294000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="372284000" />
+    <option name="totallyTimeSpent" value="373069000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1812" height="1047" extended-state="0" />
+    <frame x="-7" y="0" width="1812" height="1047" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26726058" />
@@ -916,13 +916,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/chucnang/xuatkho/xemtheovattu.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="47" column="75" lean-forward="true" selection-start-line="47" selection-start-column="75" selection-end-line="47" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/NhapkhoController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="824">
@@ -934,13 +927,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="65" column="58" lean-forward="true" selection-start-line="65" selection-start-column="58" selection-end-line="65" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="343" column="76" selection-start-line="343" selection-start-column="44" selection-end-line="343" selection-end-column="76" />
         </state>
       </provider>
     </entry>
@@ -960,8 +946,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BaocaoController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="116" column="27" selection-start-line="112" selection-end-line="116" selection-end-column="27" />
+        <state relative-caret-position="570">
+          <caret line="109" column="32" lean-forward="true" selection-start-line="109" selection-start-column="32" selection-end-line="109" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/chucnang/xuatkho/xemtheovattu.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="38" column="22" lean-forward="true" selection-end-line="102" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="336" column="84" selection-end-line="379" />
         </state>
       </provider>
     </entry>
