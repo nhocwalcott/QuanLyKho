@@ -1,0 +1,6 @@
+[15-Jan-2019 02:27:16 UTC] PHP Fatal error:  Call to undefined function App\Http\Controllers\vardump() in /home/nhadcmvt/wh.adcare.vn/app/Http/Controllers/XuatkhoController.php on line 185
+[15-Jan-2019 02:27:18 UTC] PHP Fatal error:  Call to undefined function App\Http\Controllers\vardump() in /home/nhadcmvt/wh.adcare.vn/app/Http/Controllers/XuatkhoController.php on line 185
+[15-Jan-2019 02:27:19 UTC] PHP Fatal error:  Call to undefined function App\Http\Controllers\vardump() in /home/nhadcmvt/wh.adcare.vn/app/Http/Controllers/XuatkhoController.php on line 185
+[15-Jan-2019 02:27:19 UTC] PHP Fatal error:  Call to undefined function App\Http\Controllers\vardump() in /home/nhadcmvt/wh.adcare.vn/app/Http/Controllers/XuatkhoController.php on line 185
+[15-Jan-2019 02:27:19 UTC] PHP Fatal error:  Call to undefined function App\Http\Controllers\vardump() in /home/nhadcmvt/wh.adcare.vn/app/Http/Controllers/XuatkhoController.php on line 185
+[15-Jan-2019 02:28:24 UTC] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/nhadcmvt/wh.adcare.vn/app/Http/Controllers/XuatkhoController.php on line 201
