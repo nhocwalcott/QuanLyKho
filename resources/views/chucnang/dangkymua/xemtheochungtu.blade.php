@@ -5,8 +5,8 @@
         <div class="row">
             <div class="span7">
                 <header class="page-header">
-                    <h3>Quản lý Xuất kho<br/>
-                        <small>Xem Theo chứng từ</small>
+                    <h3>Quản lý Nhập kho<br/>
+                        <small>Xem Danh sách phiếu nhập</small>
                     </h3>
                 </header>
             </div>                      
@@ -23,11 +23,11 @@
                 </div>
                 <div class="box-content">
                     <form class="form-inline">
-                    <p><b>Xuất kho</b></p>
-                        <a href="{!! URL::route('chucnang.xuatkho.getList') !!}"><i class="icon-plus"></i>&nbspXuất kho</a><br><br>
-                    <p><b>Bảng kê xuất</b></p>
-                        <a href="{!! URL::route('chucnang.xuatkho.getVattu') !!}"><i class="icon-plus"></i>&nbspChi tiết</a><br>
-                        <a href="{!! URL::route('chucnang.xuatkho.getChungtu') !!}"><i class="icon-plus"></i>&nbspDanh sách phiếu xuất</a><br>
+                        <p><b>Đăng ký mua</b></p>
+                        <a href="{!! URL::route('chucnang.dangkymua.dangkymua') !!}"><i class="icon-plus"></i>&nbspĐăng ký mua</a><br><br>
+                        <p><b>Bảng kê nhập</b></p>
+                        <a href="{!! URL::route('chucnang.dangkymua.getVattu') !!}"><i class="icon-plus"></i>&nbspChi tiết phiếu</a><br>
+                        <a href="{!! URL::route('chucnang.dangkymua.danhsach') !!}"><i class="icon-plus"></i>&nbspDanh sách phiếu đăng ký mua</a><br>
                     </form>
                 </div>
             </div>
@@ -43,16 +43,18 @@
                             <div class="row">
                                 <div id="acct-password-row" class="span13">
                                     <div id="acct-password-row" class="span12">
-                                        <br>
+                                        <div style="margin-top:5px">
+                                            Từ&nbsp<input type="date" name="" class="span3">
+                                            Đến&nbsp<input type="date" name="" class="span3">&nbsp&nbsp
+                                            <a href="#" class="btn btn-info"><i class="icon-search"></i>Tìm kiếm</a>
+                                        </div>
                                         <div>
                                             <table class="table table-bordered table-hover tablesorter" id="sample-table">
                                                 <thead style="background:#EFEFEF;">
                                                     <tr>
-                                                        <th class="span2">XK_ID</th>
+                                                        <th class="span2">NK_ID</th>
                                                         <th class="span2">Ngày</th>
-                                                        <th class="span3">Người nhận</th>
-                                                        <th class="span3">Bộ phận</th>
-                                                        <th class="span3">Người xuất</th>
+                                                        <th class="span2">Người tạo</th>
                                                         <th class="span3">Lý do</th>
                                                         <th class="span2"></th>
                                                     </tr>
@@ -61,21 +63,17 @@
                                                 @foreach ($data as $item)
                                                 <tr>
                                                         <td>{!! $item->id !!}</td>
-                                                        <td>{!! $item->xk_ngaylap !!}</td>
-
-                                                        <td>{!! $item->xk_diachi !!}</td>
-                                                        <?php $ct = DB::table('congtrinh')->where('id',$item->ct_id)->first();?>
-                                                        <td>{!! $ct->ct_ten !!}</td>
-                                                        <?php $nv = DB::table('nhanvien')->where('id',$item->nv_id)->first();?>
+                                                        <td>{!! $item->nk_ngaylap !!}</td>
+                                                        <?php $nv = DB::table('nhanvien')->where('id',$item->nv_id)->first(); ?>
                                                         <td>{!! $nv->nv_ten !!}</td>
-                                                        <td>{!! $item->xk_lydo !!}</td>
-
+                                                        <td>{!! $item->nk_lydo !!}</td>
                                                         <td class="td-actions">
-                                                            <a href="{!! URL::route('chucnang.xuatkho.getEdit' ,$item->id) !!}" class="btn btn-small btn-info"><i class="btn-icon-only icon-edit"></i></a>
+                                                            <a href="{!! URL::route('chucnang.nhapkho.getEdit' ,$item->id) !!}" class="btn btn-small btn-info"><i class="btn-icon-only icon-edit"></i></a>
                                                             </a>
-                                                            <a onclick="return confirmDel('Bạn có chắc muốn xóa dữ liệu này?')"  href="{!! URL::route('chucnang.xuatkho.getDelete',$item->id) !!}" class="btn btn-small btn-danger">
+                                                            <a onclick="return confirmDel('Bạn có chắc muốn xóa dữ liệu này?')"  href="{!! URL::route('chucnang.nhapkho.getDelete',$item->id) !!}" class="btn btn-small btn-danger">
                                                                 <i class="btn-icon-only icon-remove"></i>
                                                             </a>
+                                                            <a href="{!! URL::route('chucnang.nhapkho.getPDF',$item->id) !!}" class="btn btn-info" target="_blank"><i class="icon-print" ></i></a>
                                                         </td>
                                                     </tr>
                                                 @endforeach    

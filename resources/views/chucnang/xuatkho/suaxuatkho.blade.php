@@ -96,8 +96,7 @@
                                                     <th>Tên VT</th>
                                                     <th>ĐVT</th>
                                                     <th>Số lượng</th>
-                                                    {{--<th>Đơn giá</th>--}}
-                                                    {{--<th>Thành tiền</th>--}}
+
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -112,14 +111,9 @@
                                                         <td>{!! $vt->vt_ten !!}</td>
                                                         <td>{!! $dvt->dvt_ten !!}</td>
                                                         <td>{!! $val-> ctxk_soluong !!}</td>
-                                                        {{--<td>{!! number_format("$vt->vt_gia",0,".",",")  !!} vnd</td>--}}
-                                                        {{--<td>{!! number_format("$val->ctxk_thanhtien",0,".",",")  !!} vnd</td>--}}
                                                     </tr>
                                                 @endforeach
-                                                {{--<tr>--}}
-                                                    {{--<td colspan="5"><b><i>Tổng tiền</i></b></td>--}}
-                                                    {{--<td>{!! number_format("$xuatkho->xk_tongtien",0,".",",")  !!} vnđ</td>--}}
-                                                {{--</tr>--}}
+
                                             </tbody>
                                         </table>
                                         </form>

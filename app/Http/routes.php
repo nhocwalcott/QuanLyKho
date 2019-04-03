@@ -197,7 +197,26 @@ Route::group(['prefix' => 'chucnang'], function() {
     {
         return view('chucnang.chucnang');
     });
-
+    Route::group(['prefix' => 'dangkymua'], function() {
+        Route::get('dangkymua', ['as' => 'chucnang.dangkymua.dangkymua','uses' => 'DangkymuaController@getList']);
+        Route::post('dangkymua', ['as' => 'chucnang.dangkymua.dangkymua','uses' => 'DangkymuaController@postList']);
+        Route::get('vattu/ajax-call', function(){
+            $vattu_id = Input::get('vattu_id');
+            $country = DB::table('vattu')
+                ->where('vattu.id',$vattu_id)
+                ->join('donvitinh','donvitinh.id','=','vattu.dvt_id')
+                ->select('vattu.*','donvitinh.dvt_ten')
+                ->get();
+            return Response::json($country);
+        });
+        Route::get('nhaphang/{id}/{qty}', ['as' => 'chucnang.dangkymua.postNhaphang','uses' => 'DangkymuaController@postNhaphang']);
+        Route::get('xem-theo-chung-tu', ['as' => 'chucnang.dangkymua.danhsach','uses' => 'DangkymuaController@getDanhsach']);
+        Route::get('suadangky/{id}', ['as' => 'chucnang.dangkymua.getEdit','uses' => 'DangkymuaController@getEdit']);
+        Route::post('suadangky/{id}', ['as' => 'chucnang.dangkymua.postEdit','uses' => 'DangkymuaController@postEdit']);
+        Route::get('xemtheovattu', ['as' => 'chucnang.dangkymua.getVattu','uses' => 'DangkymuaController@getVattu']);
+        Route::get('suavattu/{id}', ['as' => 'chucnang.dangkymua.getEdit1','uses' => 'DangkymuaController@getEdit1']);
+        Route::post('suavattu/{id}', ['as' => 'chucnang.dangkymua.postEdit1','uses' => 'DangkymuaController@postEdit1']);
+    });
     Route::group(['prefix' => 'nhapkho'], function() {
         Route::get('xem-theo-chung-tu', ['as' => 'chucnang.nhapkho.danhsach','uses' => 'NhapkhoController@getDanhsach']);
         Route::get('nhapkho', ['as' => 'chucnang.nhapkho.getList','uses' => 'NhapkhoController@getList']);

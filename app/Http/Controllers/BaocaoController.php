@@ -116,8 +116,5 @@ class BaocaoController extends Controller {
             });
         })->export('xlsx');
     }
-    public function getExport2(){
-	    echo "Xin chao";
-    }
 
 }

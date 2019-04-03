@@ -29,6 +29,11 @@
                                         <img src="http://wh.adcare.vn/public/lib/images/kho.png" width="39px" height="30px" style="margin-top:-10px;"><br> STOCK
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="{!! URL::route('chucnang.dangkymua.dangkymua') !!}">
+                                        <img src="http://wh.adcare.vn/public/lib/images/kho.png" width="39px" height="30px" style="margin-top:-10px;"><br> ĐĂNG KÝ MUA
+                                    </a>
+                                </li>
                                 {{--<li>--}}
                                     {{--<a href="{!! URL::route('chucnang.khohang.tongton') !!}">--}}
                                         {{--<img src="{{ url('public/lib/images/khohang.png')}}" width="39px" height="30px" style="margin-top:-10px;"><br> Báo cáo--}}
