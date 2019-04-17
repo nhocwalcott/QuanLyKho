@@ -15,7 +15,7 @@
     </section>
 @stop
 @section('content')
-    <div class="row">
+    <div class="row span16" >
         <div class="span3">
             <div class="box">
                 <div class="box-header">
@@ -33,29 +33,27 @@
             </div>
         </div>
         <div style="margin-left:-1px" class="span13">
-            <div class="box">
-                <div class="box-header">
-                    <p><b>Nhập kho thông thường</b></p>
-                </div>
-                <div class="box-content">
-                    <div class="form-inline">
+            <div>
+
+                <div >
+                    <div>
                         <div class="container">
-                            <div class="row">
-                                <div id="acct-password-row" class="span13">
-                                    <div id="acct-password-row" class="span12">
+                            <div class="row span13">
+                                <div>
+                                    <div>
                                         <div>
                                             <form action="" method="POST" accept-charset="utf-8">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                                 <table class="tb table table-bordered table-hover" id="myTable" name="myTable">
                                                     <thead style="background:#EFEFEF;">
                                                     <tr>
-                                                        <th class="span2">Mã VT</th>
-                                                        <th class="span2">Vật tư</th>
-                                                        <th class="span2">SLĐK mua</th>
-                                                        <th class="span2">Ngày về dự kiến</th>
-                                                        <th class="span1">SL đã mua</th>
-                                                        <th class="span1">SL còn lại</th>
-                                                        <th class="span1"></th>
+                                                        <th >Mã VT</th>
+                                                        <th>Vật tư</th>
+                                                        <th >SLĐK mua</th>
+                                                        <th >Ngày về dự kiến</th>
+                                                        <th >SL đã mua</th>
+                                                        <th>SL còn lại</th>
+                                                        <th ></th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
@@ -69,12 +67,7 @@
                                                             $nv = DB::table('nhanvien')->where('id',$dkm->nv_id)->first();
                                                             ?>
                                                             <td>{!! $vt->vt_ma !!}</td>
-                                                            <td><select  class="vt_id span4" name="vt_id" id="vt_id">
-                                                                    <option value="{{ $vt->id }}">{{$vt->vt_ten}}</option>
-                                                                    @foreach($vt1 as $item)
-                                                                        <option value="{{ $item->id }}" >{{ $item->vt_ten }}</option>
-                                                                    @endforeach
-                                                                </select></td>
+                                                            <td>{!! $vt->vt_ten !!}</td>
                                                             <td>
                                                                 <input name = "ctdkm_soluong" id = "ctdkm_soluong" class="ctdkm_soluong" type="number" value="{!! $val->ctdkm_soluong !!}">
                                                             </td>

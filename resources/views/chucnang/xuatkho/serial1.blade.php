@@ -33,12 +33,10 @@
             </div>
         </div>
         <div style="margin-left:-1px" class="span13">
-            <div class="box">
-                <div class="box-header">
-                    <p><b>SERIAL DETAIL</b></p>
-                </div>
-                <div class="box-content">
-                    <div class="form-inline">
+            <div>
+
+                <div>
+                    <div>
                         <div class="container">
                             <div class="row">
                                 <div id="acct-password-row" class="span13">

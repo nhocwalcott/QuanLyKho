@@ -78,12 +78,17 @@
                                                         <input type="hidden" name="" value="{{ $val->vt_id }}" class="vt_id">
 
                                                         </td>
-
+                                                        {{--<td>{!! number_format("$vt->vt_gia",0,".",",")  !!} vnd</td>--}}
+                                                        {{--<td>{!! number_format("$val->ctxk_thanhtien",0,".",",")  !!} vnd</td>--}}
                                                         <td>
                                                             <a href="{!! URL::route('chucnang.xuatkho.getDeletePro',[$val->vt_id,$val->xk_id]) !!}">xóa</a>
                                                         </td>
                                                     </tr>
                                                 @endforeach
+                                                {{--<tr>--}}
+                                                    {{--<td colspan="5"><b><i>Tổng tiền</i></b></td>--}}
+                                                    {{--<td>{!! number_format("$xuatkho->xk_tongtien",0,".",",")  !!} vnđ</td>--}}
+                                                {{--</tr>--}}
                                             </tbody>
                                         </table>
                                             <button type="submit" class="btn btn-primary"><i class="icon-save"></i>&nbsp&nbsp&nbspLưu</button>

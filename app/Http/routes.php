@@ -392,7 +392,7 @@ Route::post('login',['as'=>'admin.login.postLogin','uses'=>'Auth\AuthController@
 
 Route::get('export',['as'=>'export','uses'=>'BaocaoController@export']);
 Route::get('/','Auth\AuthController@getLogin');
-
+Route::get('test','YeucauController@getYeucau');
 
 Route::get('checkstatus','WelcomeController@check_status');
 Route::get('check','WelcomeController@check');

@@ -129,10 +129,16 @@ class XuatkhoController extends Controller {
 	    $xuatkho = DB::table('xuatkho')->where('id',$ttxuat->xk_id)->first();
 	    $bophan = DB::table('congtrinh')->where('id',$xuatkho->ct_id)->first();
 	    $ttnhap = DB::table('chitietnhapkho')->where('vt_id',$ttxuat->vt_id)->where('kho_id',$ttxuat->kho_id)->get();
-	    foreach ($ttnhap as $tt){
-	        $seriallist = DB::table('serial')->where('ctnk_id',$tt->id)->where('bophan',' ')->where('quality',"OK")->get();
-        }
-        return view('chucnang.xuatkho.serial',compact('seriallist','xuatkho','bophan','ttxuat'));
+	    $i =0;
+		$listid = array();				
+		foreach ($ttnhap as $tt){
+		
+			$listid[$i] = $tt->id;
+			$i++;
+			}
+	        $seriallist = DB::table('serial')->whereIn('ctnk_id',$listid)->where('bophan','')->where('quality',"OK")->get();			
+		return view('chucnang.xuatkho.serial',compact('seriallist','xuatkho','bophan','ttxuat'));
+         
     }
     public function postSerial($id){
 	    $status = Request::input('status');
@@ -203,12 +209,6 @@ class XuatkhoController extends Controller {
                     'sl_ton' => $sl_ton
                 ]);
             }
-        }else if ($serial1->quality == "TL"){
-            if ($quality == "OK"){
-                echo "<script>
-            		alert('Khong dc phep sua!');
-            	</script>";
-            }
         }
         DB::table('serial')
             ->where('serial',$id)
@@ -249,16 +249,16 @@ class XuatkhoController extends Controller {
 	public function getVattu()
 	{
 
-		$chitiet = DB::table('chitietxuatkho')->get();
-		//var_dump($data);
-		return view('chucnang.xuatkho.xemtheovattu',compact('chitiet'));
+		$chitiets = DB::table('chitietxuatkho')->paginate(6);
+        $chitiets->setPath('xemtheovattu');
+		return view('chucnang.xuatkho.xemtheovattu',compact('chitiets'));
 	}
 
 	public function getChungtu()
 	{
-		$data = DB::table('xuatkho')->get();
-
-		return view('chucnang.xuatkho.xemtheochungtu',compact('data'));
+		$datas = DB::table('xuatkho')->paginate(6);
+        $datas->setPath('xemtheochungtu');
+		return view('chucnang.xuatkho.xemtheochungtu',compact('datas'));
 	}
 
 	public function postXuathang()

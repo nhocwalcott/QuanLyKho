@@ -58,34 +58,10 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-
-                                                @foreach ($data as $item)
-                                                    <?php 
-                                                            $vattu = DB::table('vattukho')
-                                                                ->where('vattukho.kho_id',$item->id)
-                                                                ->join('vattu','vattu.id','=','vattukho.vt_id')
-                                                                ->join('donvitinh','donvitinh.id','=','vattu.dvt_id')
-                                                                ->select(
-                                                                    'vattukho.sl_nhap','vattukho.sl_xuat',
-                                                                    'vattukho.sl_ton','donvitinh.dvt_ten',
-                                                                    'vattu.id','vattu.vt_ma','vattu.vt_ten',
-                                                                    'vattu.vt_gia','vattu.created_at'
-                                                                    )->orderByRaw('vattukho.sl_ton DESC')
-                                                                ->get();
-                                                            $tongsl = DB::table('vattukho')
-                                                                ->where('vattukho.kho_id',$item->id)
-                                                                ->sum('sl_ton');
-                                                            $tongtien = DB::table('vattukho')
-                                                                ->where('vattukho.kho_id',$item->id)
-                                                                ->join('vattu','vattu.id','=','vattukho.vt_id')
-                                                                ->select(DB::raw('sum(vattukho.sl_ton*vattu.vt_gia) as thanhtien') )
-                                                                ->get();
-
-                                                        ?>
                                                     <tr>
-                                                        <td colspan="9" style="color:red;"><b>Kho hàng: {!! $item->kho_ten !!} | Tồn: {!! $tongsl !!}   </b></td>
+                                                        <td colspan="9" style="color:red;"><b>Kho hàng:  | Tồn: {!! $tongsl !!}   </b></td>
                                                     </tr>
-                                                    @foreach ($vattu as $val)
+                                                    @foreach ($vattukho as $val)
                                                     <tr>
                                                         <td>{!! $val->vt_ma !!}</td>
                                                         <td>{!! $val->vt_ten !!}</td>
@@ -95,19 +71,25 @@
                                                         <td>{!! $val->sl_ton !!}</td>
 
                                                         <?php
+														$ok = DB::table('serial')->where('serial.vt_id',$val->id)->where('quality',"OK")->where('ctxk_id','')->count();
                                                         $ng = DB::table('serial')->where('serial.vt_id',$val->id)->where('quality',"NG")->count();
                                                         $tl = DB::table('serial')->where('serial.vt_id',$val->id)->where('quality',"TL")->count();
                                                         ?>
                                                         <td>{!! $ng !!}</td>
                                                         <td>{!! $tl !!}</td>
-                                                        <td>{!! $val->sl_ton- $ng!!}</td>
+                                                        <td>{!! $ok!!}</td>
                                                     </tr>
-                                                      @endforeach  
-                                                    @endforeach
+                                                      @endforeach
                                                     
                                                 </tbody>
                                             </table>
+
                                         </div>
+                                    <tr>
+                                        <ul class="pagination pagination-sm">
+                                            <li class="page-item"><a class="page-link" href="#">{!! $vattukho->render(); !!}</a></li>
+                                        </ul>
+                                    </tr>
                                 </div>
                             </div>
                         </div>

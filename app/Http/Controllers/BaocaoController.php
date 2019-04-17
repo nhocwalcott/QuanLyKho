@@ -16,8 +16,28 @@ class BaocaoController extends Controller {
 	 */
 	public function getKhohang()
 	{
-		$data = DB::table('kho')->get();
-		return view('chucnang.baocao.khohang',compact('data'));
+        $vattukho = DB::table('vattukho')
+            ->where('vattukho.kho_id',1)
+            ->join('vattu','vattu.id','=','vattukho.vt_id')
+            ->join('donvitinh','donvitinh.id','=','vattu.dvt_id')
+            ->select(
+                'vattukho.sl_nhap','vattukho.sl_xuat',
+                'vattukho.sl_ton','donvitinh.dvt_ten',
+                'vattu.id','vattu.vt_ma','vattu.vt_ten',
+                'vattu.vt_gia','vattu.created_at'
+            )->orderByRaw('vattukho.sl_ton DESC')
+            ->paginate(10);
+        $vattukho->setPath('khohang');
+        $tongsl = DB::table('vattukho')
+            ->where('vattukho.kho_id',1)
+            ->sum('sl_ton');
+        $tongtien = DB::table('vattukho')
+            ->where('vattukho.kho_id',1)
+            ->join('vattu','vattu.id','=','vattukho.vt_id')
+            ->select(DB::raw('sum(vattukho.sl_ton*vattu.vt_gia) as thanhtien') )
+            ->get();
+        $vattukho->setPath('khohang');
+        return view('chucnang.baocao.khohang',compact('vattukho','tongsl','tongtien'));
 	}
 	public function export(){
         $vattu = DB::table('vattukho')
@@ -33,7 +53,7 @@ class BaocaoController extends Controller {
         $data = array();
         $data=array('id','vt_ma','vt_ten','dvt_ten','vt_gia','sl_nhap','sl_xuat','sl_ton','created_at');
         foreach ($vattu as $item){
-            $data['id']= $item->id;
+            $data['id']= 1;
             $data['vt_ma'] = $item->vt_ma;
         }
         var_dump($data);
@@ -106,10 +126,8 @@ class BaocaoController extends Controller {
             $sr->model = $vattu->vt_gia;
             $sr->tenvattu = $vattu->vt_ten;
             $sr->tenbophan = $congtrinh->ct_ten;
-            $sr->key = $vattu->vt_ma.$sr->ct_id;
             $data[]= (array)$sr;
         }
-
         \Maatwebsite\Excel\Facades\Excel::create('DLKiemke',function($excel) use($data){
             $excel->sheet('Sheet1', function($sheet) use($data){
                 $sheet->fromArray($data);

@@ -72,7 +72,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                @foreach ($chitiet as $val)
+                                                @foreach ($chitiets as $val)
                                                     <?php
                                                   $vt = DB::table('vattu')->where('id',$val->vt_id)->first();
                                                   $dvt = DB::table('donvitinh')->where('id',$vt->dvt_id)->first();
@@ -104,6 +104,11 @@
                                                 @endforeach
                                                 </tbody>
                                             </table>
+                                            <tr>
+                                                <ul class="pagination pagination-sm">
+                                                    <li class="page-item"><a class="page-link" href="#">{!! $chitiets->render(); !!}</a></li>
+                                                </ul>
+                                            </tr>
                                         </div>
                                     </div>
                                 </div>

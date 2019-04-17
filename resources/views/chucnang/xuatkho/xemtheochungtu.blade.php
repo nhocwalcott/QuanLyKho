@@ -43,6 +43,11 @@
                             <div class="row">
                                 <div id="acct-password-row" class="span13">
                                     <div id="acct-password-row" class="span12">
+                                        <!-- <div style="margin-top:5px">
+                                            Từ&nbsp<input type="date" name="" class="span3">
+                                            Đến&nbsp<input type="date" name="" class="span3">&nbsp&nbsp
+                                            <a href="#" class="btn btn-info"><i class="icon-search"></i>Tìm kiếm</a>
+                                        </div> -->
                                         <br>
                                         <div>
                                             <table class="table table-bordered table-hover tablesorter" id="sample-table">
@@ -54,11 +59,12 @@
                                                         <th class="span3">Bộ phận</th>
                                                         <th class="span3">Người xuất</th>
                                                         <th class="span3">Lý do</th>
+                                                        {{--<th class="span2">Tổng tiền</th>--}}
                                                         <th class="span2"></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                @foreach ($data as $item)
+                                                @foreach ($datas as $item)
                                                 <tr>
                                                         <td>{!! $item->id !!}</td>
                                                         <td>{!! $item->xk_ngaylap !!}</td>
@@ -69,7 +75,7 @@
                                                         <?php $nv = DB::table('nhanvien')->where('id',$item->nv_id)->first();?>
                                                         <td>{!! $nv->nv_ten !!}</td>
                                                         <td>{!! $item->xk_lydo !!}</td>
-
+                                                        {{--<td>{!! number_format("$item->xk_tongtien",0,".",",")  !!} vnd</td>--}}
                                                         <td class="td-actions">
                                                             <a href="{!! URL::route('chucnang.xuatkho.getEdit' ,$item->id) !!}" class="btn btn-small btn-info"><i class="btn-icon-only icon-edit"></i></a>
                                                             </a>
@@ -81,6 +87,11 @@
                                                 @endforeach    
                                                 </tbody>
                                             </table>
+                                            <tr>
+                                                <ul class="pagination pagination-sm">
+                                                    <li class="page-item"><a class="page-link" href="#">{!! $datas->render(); !!}</a></li>
+                                                </ul>
+                                            </tr>
                                         </div>
                                     </div>
                                 </div>

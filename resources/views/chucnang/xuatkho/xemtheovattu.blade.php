@@ -64,7 +64,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                               @foreach ($chitiet as $chitiet)
+                                               @foreach ($chitiets as $chitiet)
                                                     <?php
                                                     $vt = DB::table('vattu')->where('id',$chitiet->vt_id)->first();
                                                     $dvt = DB::table('donvitinh')->where('id',$vt->dvt_id)->first();
@@ -86,11 +86,17 @@
                                                             <a href="{!! URL::route('chucnang.xuatkho.getSerial1' ,$chitiet->id) !!}" class="btn btn-small btn-info"><i class="btn-icon-only icon-edit">SERIAL</i></a>
                                                         </td>
                                                     </tr>
-                                                    <tr>
+
                                                     @endforeach
                                                 </tbody>
                                             </table>
+                                            <tr>
+                                                <ul class="pagination pagination-sm">
+                                                    <li class="page-item"><a class="page-link" href="#">{!! $chitiets->render(); !!}</a></li>
+                                                </ul>
+                                            </tr>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>

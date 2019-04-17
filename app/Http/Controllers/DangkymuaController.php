@@ -160,9 +160,10 @@ class DangkymuaController extends Controller {
 
     public function getVattu()
     {
-        $chitiet = DB::table('chitietdangkymua')->get();
+        $chitiets = DB::table('chitietdangkymua')->paginate(5);
+        $chitiets->setPath('xemtheovattu');
         // print_r($data);
-        return view('chucnang.dangkymua.xemtheovattu',compact('chitiet'));
+        return view('chucnang.dangkymua.xemtheovattu',compact('chitiets'));
     }
 
     public function postNhaphang()

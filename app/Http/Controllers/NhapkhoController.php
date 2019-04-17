@@ -18,9 +18,9 @@ class NhapkhoController extends Controller {
 
     public function getDanhsach()
     {
-        $data = DB::table('nhapkho')->get();
-      //  var_dump($data);
-      return view('chucnang.nhapkho.danhsach',compact('data'));
+        $datas = DB::table('nhapkho')->paginate(6);
+        $datas->setPath('xem-theo-chung-tu');
+      return view('chucnang.nhapkho.danhsach',compact('datas'));
     }
 
     public function getList()
@@ -186,9 +186,10 @@ class NhapkhoController extends Controller {
 
     public function getVattu()
     {
-        $data = DB::table('nhapkho')->get();
+        $datas = DB::table('nhapkho')->paginate(6);
+        $datas->setPath('xem-theo-vat-tu');
         // print_r($data);
-        return view('chucnang.nhapkho.xemtheovattu',compact('data'));
+        return view('chucnang.nhapkho.xemtheovattu',compact('datas'));
     }
 
     public function postNhaphang()

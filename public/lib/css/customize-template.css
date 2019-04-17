@@ -10,6 +10,10 @@ nav,
 section {
   display: block;
 }
+
+.body-container{
+  background: #0b97c4;
+}
 audio,
 canvas,
 video {
@@ -91,7 +95,7 @@ input[type="submit"] {
   cursor: pointer;
   -webkit-appearance: button;
 }
-input[type="search"] {
+[type="search"] {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -1285,7 +1289,6 @@ input[type="search"],
 input[type="tel"],
 input[type="color"],
 .uneditable-input {
-  display: inline-block;
   height: 20px;
   padding: 4px 6px;
   margin-bottom: 9px;
@@ -1299,8 +1302,9 @@ input[type="color"],
 input,
 textarea,
 .uneditable-input {
-  width: 206px;
+  width: 120px;
 }
+
 textarea {
   height: auto;
 }
@@ -2255,7 +2259,7 @@ legend + .control-group {
 }
 table {
   max-width: 100%;
-  background-color: transparent;
+  background-color: #eeeeee;
   border-collapse: collapse;
   border-spacing: 0;
 }
@@ -7883,6 +7887,7 @@ body > #body-container {
   top: -2px;
 }
 .box .box-content {
+  background-color: #eeeeee;
   padding: 10px;
 }
 .box .box-content.box-table {

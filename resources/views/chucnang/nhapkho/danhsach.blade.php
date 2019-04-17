@@ -62,7 +62,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                @foreach ($data as $item)
+                                                @foreach ($datas as $item)
                                                 <tr>
                                                         <td>{!! $item->id !!}</td>
                                                         <td>{!! $item->nk_ngaylap !!}</td>
@@ -82,6 +82,11 @@
                                                 @endforeach    
                                                 </tbody>
                                             </table>
+                                            <tr>
+                                                <ul class="pagination pagination-sm">
+                                                    <li class="page-item"><a class="page-link" href="#">{!! $datas->render(); !!}</a></li>
+                                                </ul>
+                                            </tr>
                                         </div>
                                     </div>
                                 </div>
